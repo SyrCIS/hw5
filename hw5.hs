@@ -153,8 +153,8 @@ downgrade :: Char -> Int -> [(Char,Int)] -> [(Char,Int)]
 downgrade _ _ [] = []
 downgrade a x ((b,y):ps)
         | (a /= b)   = ((b,y):(downgrade a x ps))
-        | (x >= y)   = downgrade a x ps
-        | otherwise  = ((b,(y-1)):(downgrade a x ps))
+        | (x >= y)   =  ps
+        | otherwise  = ((b,(y-1)): ps)
 
 --TESTS
 ans11 = downgrade 'a' 1 [('b',1),('a',3),('c',2),('a',1)] --should return [('b',1),('a',2),('c',2),('a',1)]
